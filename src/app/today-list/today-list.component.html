@@ -1,0 +1,18 @@
+<mat-list>
+   
+    <div mat-subheader>Todos</div>
+    <mat-divider></mat-divider>
+
+    <mat-list-item *ngFor="let note of notes">
+      <div matListItemTitle style="
+        display: flex;
+        align-items: center;
+    ">{{note.name}}
+    <button matSuffix mat-icon-button (click)="openPopup()">
+        <mat-icon>drag_indicator</mat-icon>
+      </button>
+        <!-- <mat-icon matListItemIcon (click)="openPopup()">drag_indicator</mat-icon> -->
+
+      </div>
+    </mat-list-item>
+  </mat-list>
