@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AddOrEditDialogComponent } from '../popups/add-or-edit-dialog/add-or-edit-dialog.component';
 import { TodoServiceService } from '../services/todo-service.service';
 // import {FormsModule} from '@angular/forms';
 // import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,7 +16,8 @@ export class ActionDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<ActionDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public todoService : TodoServiceService
+    public todoService : TodoServiceService,
+    public dialog: MatDialog
   ) {}
 
   onViewClick(): void {
@@ -24,6 +26,17 @@ export class ActionDialogComponent {
   }
   onEditClick(): void {
     
+    const editDialogRef = this.dialog.open(AddOrEditDialogComponent, {
+      data:this.data
+    });
+
+    editDialogRef.afterClosed().subscribe(result => {
+      this.todoService.getTodoList().subscribe(result=>{
+        this.todoService.updateTodoList(result.data);
+      })
+
+    });
+
     this.dialogRef.close();
   }
   onDeleteClick(): void {

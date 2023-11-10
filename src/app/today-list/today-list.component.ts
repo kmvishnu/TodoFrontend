@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import {NgFor, DatePipe} from '@angular/common';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActionDialogComponent } from '../action-dialog/action-dialog.component';
@@ -27,6 +27,7 @@ export class TodayListComponent implements OnInit{
 
   constructor(public dialog: MatDialog, public todoService : TodoServiceService) {}
   ngOnInit(): void {
+
     Promise.all([
       this.fetchAllTodos()
      
@@ -34,6 +35,14 @@ export class TodayListComponent implements OnInit{
      console.log(res);
      
     });
+
+
+    this.todoService.todoList$.subscribe((todoList) => {
+      this.todoList = todoList;
+    });
+
+    
+
   }
   fetchAllTodos() {
     return new Promise((resolve, reject) => {

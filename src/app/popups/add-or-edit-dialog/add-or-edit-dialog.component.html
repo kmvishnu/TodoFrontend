@@ -1,0 +1,50 @@
+<div mat-dialog-actions>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Todo</mat-label>
+          <input matInput name="todo" [(ngModel)]="todo" />
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Details</mat-label>
+          <textarea matInput name="details" [(ngModel)]="details"></textarea>
+        </mat-form-field>
+      </p>
+    </tr>
+    <tr>
+      <div *ngIf="edit===true; then thenBlock; else elseBlock"></div>
+      <ng-template #thenBlock
+        >
+        <td>
+            <button mat-button (click)="onEditClick()">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-button disabled></button>
+            <button mat-button (click)="onNoClick()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </td>
+        </ng-template
+      >
+      <ng-template #elseBlock
+        >
+        <td>
+            <button mat-button (click)="onAddClick()">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-button disabled></button>
+            <button mat-button (click)="onNoClick()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </td>
+        </ng-template
+      >
+      
+    </tr>
+  </table>
+</div>

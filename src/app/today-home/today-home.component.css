@@ -1,5 +1,6 @@
 .example-card {
     width: 500px;
+    max-height:auto;
     /* Center horizontally*/
   }
   
@@ -10,12 +11,13 @@
   .example-spacer {
     flex: 1 1 auto;
   }
-  .main-div{
+  /* .main-div{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
+  
   .example-form {
     min-width: 150px;
     max-width: 500px;
@@ -24,4 +26,35 @@
   
   .example-full-width {
     width: 100%;
+  }
+  
+  /* button[mat-fab][color='myCustomColor'] {
+    background-color: #f7f5f5e4;
+  } */
+
+  /* .custom-button {
+    background-color: #2196F3; 
+    color: white; 
+    font-size: 18px; 
+    
+  } */
+
+  .main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensures the container takes the full height of its parent */
+  }
+
+  .example-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center; /* Center text content */
+    background-color: #fae607fe; 
+    color: rgb(11, 10, 10); 
+  }
+  .icon_class{
+    font-size: 28px; 
   }
