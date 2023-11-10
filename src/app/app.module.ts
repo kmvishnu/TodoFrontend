@@ -16,12 +16,17 @@ import { TodayHomeComponent } from './today-home/today-home.component';
 import { TodayListComponent } from './today-list/today-list.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ActionDialogComponent } from './action-dialog/action-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TodayHomeComponent,
-    TodayListComponent
+    TodayListComponent,
+    ActionDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,9 @@ import {MatListModule} from '@angular/material/list';
      MatFormFieldModule, 
      MatInputModule,
      MatDividerModule,
-     MatListModule
+     MatListModule,
+     MatDialogModule,
+     HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
