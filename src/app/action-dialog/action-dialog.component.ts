@@ -55,4 +55,17 @@ export class ActionDialogComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  onDoneClick():void{
+    this.todoService.editTodo({data:{name:this.data.name,id:this.data.id,details:this.data.details,done:!this.data.done}}).subscribe(
+      response => {
+        console.log('Condition Changed Successfully', response);
+
+      },
+      error => {
+        console.error('Failed to update Todo', error);
+      }
+    );
+    this.dialogRef.close();
+  }
 }

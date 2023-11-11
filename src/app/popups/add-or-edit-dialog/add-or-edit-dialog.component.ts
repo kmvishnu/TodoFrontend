@@ -8,11 +8,12 @@ import { TodoServiceService } from 'src/app/services/todo-service.service';
   templateUrl: './add-or-edit-dialog.component.html',
   styleUrls: ['./add-or-edit-dialog.component.css']
 })
-export class AddOrEditDialogComponent implements OnInit{
+export class  AddOrEditDialogComponent implements OnInit{
 
   details!: String;
   todo!:String;
   edit:boolean=false;
+  done!:boolean;;
 
   constructor(
     public dialogRef: MatDialogRef<AddOrEditDialogComponent>,
@@ -22,6 +23,8 @@ export class AddOrEditDialogComponent implements OnInit{
   ngOnInit(): void {
     if(this.data){
       this.todo=this.data.name
+      this.details=this.data.details
+      this.done=this.data.done
       this.edit=true;
 
     }
@@ -33,7 +36,8 @@ export class AddOrEditDialogComponent implements OnInit{
     this.dialogRef.close();
   }
   onEditClick(): void {
-    this.todoService.editTodo({data:{name:this.todo,id:this.data.id}}).subscribe(
+    
+    this.todoService.editTodo({data:{name:this.todo,id:this.data.id,details:this.details,done:this.done}}).subscribe(
       response => {
         console.log('todo added Successfully', response);
 
@@ -46,7 +50,7 @@ export class AddOrEditDialogComponent implements OnInit{
     this.dialogRef.close();
   }
   onAddClick(): void {
-    this.todoService.addTodo({data:{name:this.todo}}).subscribe(
+    this.todoService.addTodo({data:{name:this.todo,details:this.details,done:false}}).subscribe(
       response => {
         console.log('todo added Successfully', response);
 
@@ -61,4 +65,6 @@ export class AddOrEditDialogComponent implements OnInit{
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  
 }
