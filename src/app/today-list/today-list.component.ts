@@ -11,7 +11,9 @@ export interface Section {
 
 export interface Todos {
   id: number,
-  name: String
+  name: String,
+  details:String,
+  done:boolean
 }
 @Component({
   selector: 'app-today-list',

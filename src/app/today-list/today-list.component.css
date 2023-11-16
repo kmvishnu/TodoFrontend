@@ -1,3 +1,31 @@
 .mat-mdc-list-item-icon {
     color: rgba(0, 0, 0, 0.54);
   }
+
+ 
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 450px;
+  }
+ 
+  .todo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .first-column {
+    flex: 1; /* Take up 100% of available space */
+    width: 80%; /* Set a fixed width of 80% for the first column */
+    overflow: hidden; /* Hide content that exceeds the fixed width */
+  }
+  
+  .list-container {
+    max-height: 350px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling when content exceeds the height */
+  }
+  s {
+
+    text-decoration-color:  hwb(47 3% 2% / 0.996);
+  }
