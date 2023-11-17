@@ -11,7 +11,7 @@ import { TodoServiceService } from 'src/app/services/todo-service.service';
 export class  AddOrEditDialogComponent implements OnInit{
 
   details!: String;
-  todo!:String;
+  todo:String='';
   edit:boolean=false;
   done!:boolean;;
 

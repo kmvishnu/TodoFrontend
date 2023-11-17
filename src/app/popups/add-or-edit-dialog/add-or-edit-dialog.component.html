@@ -4,7 +4,7 @@
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Todo</mat-label>
-          <input matInput name="todo" [(ngModel)]="todo" />
+          <input matInput name="todo" [(ngModel)]="todo" maxlength="35" />
         </mat-form-field>
       </td>
     </tr>
@@ -12,7 +12,7 @@
       <p>
         <mat-form-field class="example-full-width">
           <mat-label>Details</mat-label>
-          <textarea matInput name="details" [(ngModel)]="details"></textarea>
+          <textarea matInput name="details" [(ngModel)]="details" maxlength="100"></textarea>
         </mat-form-field>
       </p>
     </tr>
@@ -21,7 +21,7 @@
       <ng-template #thenBlock
         >
         <td>
-            <button mat-button (click)="onEditClick()">
+            <button mat-button (click)="onEditClick()" [disabled]="todo=== ''">
               <mat-icon>edit</mat-icon>
             </button>
             <button mat-button disabled></button>
@@ -34,7 +34,7 @@
       <ng-template #elseBlock
         >
         <td>
-            <button mat-button (click)="onAddClick()">
+            <button mat-button (click)="onAddClick()" [disabled]="todo=== ''">
               <mat-icon>add</mat-icon>
             </button>
             <button mat-button disabled></button>
