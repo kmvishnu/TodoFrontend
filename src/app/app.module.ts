@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ActionDialogComponent } from './action-dialog/action-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddOrEditDialogComponent } from './popups/add-or-edit-dialog/add-or-edit-dialog.component';
+import { ViewTodoComponent } from './popups/view-todo/view-todo.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AddOrEditDialogComponent } from './popups/add-or-edit-dialog/add-or-edi
     TodayListComponent,
     ActionDialogComponent,
     AddOrEditDialogComponent,
+    ViewTodoComponent,
   ],
   imports: [
     BrowserModule,

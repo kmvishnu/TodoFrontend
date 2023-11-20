@@ -1,6 +1,12 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { AddOrEditDialogComponent } from '../popups/add-or-edit-dialog/add-or-edit-dialog.component';
+import { ViewTodoComponent } from '../popups/view-todo/view-todo.component';
 import { TodoServiceService } from '../services/todo-service.service';
 // import {FormsModule} from '@angular/forms';
 // import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,37 +22,36 @@ export class ActionDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<ActionDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public todoService : TodoServiceService,
+    public todoService: TodoServiceService,
     public dialog: MatDialog
   ) {}
 
   onViewClick(): void {
-    
+    const editDialogRef = this.dialog.open(ViewTodoComponent, {
+      data: this.data
+    });
+
     this.dialogRef.close();
   }
   onEditClick(): void {
-    
     const editDialogRef = this.dialog.open(AddOrEditDialogComponent, {
-      data:this.data
+      data: this.data,
     });
 
-    editDialogRef.afterClosed().subscribe(result => {
-      this.todoService.getTodoList().subscribe(result=>{
+    editDialogRef.afterClosed().subscribe((result) => {
+      this.todoService.getTodoList().subscribe((result) => {
         this.todoService.updateTodoList(result.data);
-      })
-
+      });
     });
 
     this.dialogRef.close();
   }
   onDeleteClick(): void {
-    
     this.todoService.deleteTodo(this.data.id).subscribe(
-      response => {
+      (response) => {
         console.log('Delete successful', response);
-
       },
-      error => {
+      (error) => {
         console.error('Delete failed', error);
       }
     );
@@ -56,16 +61,24 @@ export class ActionDialogComponent {
     this.dialogRef.close();
   }
 
-  onDoneClick():void{
-    this.todoService.editTodo({data:{name:this.data.name,id:this.data.id,details:this.data.details,done:!this.data.done}}).subscribe(
-      response => {
-        console.log('Condition Changed Successfully', response);
-
-      },
-      error => {
-        console.error('Failed to update Todo', error);
-      }
-    );
+  onDoneClick(): void {
+    this.todoService
+      .editTodo({
+        data: {
+          name: this.data.name,
+          id: this.data.id,
+          details: this.data.details,
+          done: !this.data.done,
+        },
+      })
+      .subscribe(
+        (response) => {
+          console.log('Condition Changed Successfully', response);
+        },
+        (error) => {
+          console.error('Failed to update Todo', error);
+        }
+      );
     this.dialogRef.close();
   }
 }
