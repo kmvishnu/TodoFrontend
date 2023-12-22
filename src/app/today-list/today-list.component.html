@@ -1,0 +1,34 @@
+<mat-list>
+  <div mat-subheader>Today</div>
+  <mat-divider></mat-divider>
+  
+  <div class="list-container">
+  <mat-list-item *ngFor="let todo of todoList" >
+    <div matListItemTitle class="todo-container">
+      <table>
+        <tr>
+          <div *ngIf="todo.done===true; then thenBlock; else elseBlock"></div>
+          <ng-template #thenBlock>
+          <td class="first-column">
+            <s >{{ todo.name }}</s>
+          </td>
+          </ng-template>
+          <ng-template #elseBlock>
+            <td class="first-column">
+              {{ todo.name }}
+            </td>
+          </ng-template>
+
+          <td class="customIcon" align="right" >
+            <button matSuffix mat-icon-button (click)="openPopup(todo)">
+              <mat-icon>drag_indicator</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+
+      <!-- <mat-icon matListItemIcon (click)="openPopup()">drag_indicator</mat-icon> -->
+    </div>
+  </mat-list-item>
+</div>
+</mat-list>
