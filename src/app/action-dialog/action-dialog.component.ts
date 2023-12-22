@@ -37,10 +37,9 @@ export class ActionDialogComponent {
     const editDialogRef = this.dialog.open(AddOrEditDialogComponent, {
       data: this.data,
     });
-
     editDialogRef.afterClosed().subscribe((result) => {
       this.todoService.getTodoList().subscribe((result) => {
-        this.todoService.updateTodoList(result.data);
+        this.todoService.updateTodoList(result);
       });
     });
 
@@ -73,6 +72,9 @@ export class ActionDialogComponent {
       })
       .subscribe(
         (response) => {
+          this.todoService.getTodoList().subscribe((result) => {
+            this.todoService.updateTodoList(result);
+          });
           console.log('Condition Changed Successfully', response);
         },
         (error) => {

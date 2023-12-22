@@ -21,9 +21,12 @@ export class TodayHomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.todoService.getTodoList().subscribe(result=>{
-        this.todoService.updateTodoList(result.data);
-      })
+      
+      setTimeout(() => {
+        this.todoService.getTodoList().subscribe(updatedResult => {
+          this.todoService.updateTodoList(updatedResult);
+        });
+      }, 900);
 
     });
 

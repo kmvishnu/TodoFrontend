@@ -50,7 +50,7 @@ export class TodayListComponent implements OnInit{
     return new Promise((resolve, reject) => {
       this.todoService.getTodoList().subscribe(
         (result) => {
-         this.todoList=result.data;         
+         this.todoList=result;         
           resolve(true);
         },
         (error) => {
@@ -66,7 +66,9 @@ export class TodayListComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.fetchAllTodos()
+      setTimeout(() => {
+        this.fetchAllTodos()
+      }, 50);
     });
   }
 

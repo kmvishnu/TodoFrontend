@@ -19,21 +19,21 @@ export class TodoServiceService {
   }
 
   getTodoList(): Observable<any> {
-    return this.http.get(environment.api + 'temp/viewAll');
+    return this.http.get(environment.api + 'todo/viewAllTodos');
   }
 
   deleteTodo(id:number): Observable<any> {
     
-    return this.http.delete(`${environment.api}temp/delete/${id}`,{});
+    return this.http.delete(`${environment.api}todo/deleteTodo/${id}`,{});
   }
 
   addTodo(data:object){
-    return this.http.post(environment.api + 'temp/add',data);
+    return this.http.post(environment.api + 'todo/createTodo',data);
 
   }
 
   editTodo(data:object){
-    return this.http.put(environment.api + 'temp/edit',data);
+    return this.http.put(environment.api + 'todo/updateTodo',data);
 
   }
 }
