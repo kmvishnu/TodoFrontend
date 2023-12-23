@@ -16,10 +16,11 @@
         </mat-form-field>
       </p>
     </tr>
-    <tr>
+    
       <div *ngIf="edit===true; then thenBlock; else elseBlock"></div>
       <ng-template #thenBlock
         >
+        <tr>
         <td>
             <button mat-button (click)="onEditClick()" [disabled]="todo=== ''">
               <mat-icon>edit</mat-icon>
@@ -29,10 +30,15 @@
               <mat-icon>close</mat-icon>
             </button>
           </td>
+        </tr>
         </ng-template
       >
       <ng-template #elseBlock
         >
+        <tr>
+          Constant Todo ?  <mat-slide-toggle [(ngModel)]="constant">{{constant}}</mat-slide-toggle>
+        </tr>
+        <tr>
         <td>
             <button mat-button (click)="onAddClick()" [disabled]="todo=== ''">
               <mat-icon>add</mat-icon>
@@ -42,9 +48,10 @@
               <mat-icon>close</mat-icon>
             </button>
           </td>
+        </tr>
         </ng-template
       >
       
-    </tr>
+    
   </table>
 </div>

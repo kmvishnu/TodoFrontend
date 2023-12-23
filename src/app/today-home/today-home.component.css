@@ -1,5 +1,5 @@
 .example-card {
-    width: 500px;
+    width: 380px;
     max-height:auto;
     /* Center horizontally*/
   }
@@ -20,7 +20,7 @@
   
   .example-form {
     min-width: 150px;
-    max-width: 500px;
+    max-width: 350px;
     width: 100%;
   }
   
