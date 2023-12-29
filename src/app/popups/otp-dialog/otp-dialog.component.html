@@ -1,0 +1,45 @@
+<div class="main-div">
+    <mat-card>
+      <mat-card-header></mat-card-header>
+  
+      <mat-card-content>
+        <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <div class="cell">
+                        <h2 mat-dialog-title class="wrapped-title">Enter the OTP recieved in {{ data.email }}</h2>
+                      </div>
+                </td>
+            </tr>
+          <tr>
+            <td>
+              <mat-form-field style="width: 100%">
+                <mat-label>Enter OTP</mat-label>
+                <input
+                  matInput
+                  placeholder="pat@example.com"
+                  formControlName="otp"
+                  required
+                />
+                <!-- <mat-error *ngIf="email.invalid">{{
+                  getErrorMessage()
+                }}</mat-error> -->
+              </mat-form-field>
+            </td>
+          </tr>
+  
+          <tr>
+            <td class="center-button">
+              <button mat-fab extended class="example-card" type="submit" [disabled]="!otpForm.valid">
+                <b>Submit</b>
+
+              </button>
+            </td>
+          </tr>
+        </table>
+    </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
