@@ -30,7 +30,9 @@ export class RegisterComponent {
   onSubmit(){
     const dialogRef = this.dialog.open(OtpDialogComponent, {
       data:{
-        email:this.profileForm.value.email
+        email:this.profileForm.value.email,
+        name:this.profileForm.value.name,
+        password:this.profileForm.value.password
       }
     });
 
