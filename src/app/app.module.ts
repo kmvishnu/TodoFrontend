@@ -24,6 +24,7 @@ import { ViewTodoComponent } from './popups/view-todo/view-todo.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { OtpDialogComponent } from './popups/otp-dialog/otp-dialog.component';
+import { MenuDialogComponent } from './popups/menu-dialog/menu-dialog.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { OtpDialogComponent } from './popups/otp-dialog/otp-dialog.component';
     LoginComponent,
     RegisterComponent,
     OtpDialogComponent,
+    MenuDialogComponent,
   ],
   imports: [
     BrowserModule,

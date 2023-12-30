@@ -58,3 +58,13 @@
   .icon_class{
     font-size: 28px; 
   }
+
+  .logout-button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px; /* Adjust padding as needed */
+  }
+  
+  .logout-button {
+    margin-right: 8px !important;/* Adjust margin-right as needed */
+  }

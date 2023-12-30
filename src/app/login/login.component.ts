@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,11 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   profileForm = new FormGroup({
     email: new FormControl('', [
@@ -23,6 +28,7 @@ export class LoginComponent {
   });
   hide = true;
   edit = false;
+  error = false;
   // getErrorMessage() {
   //   if (this.email.hasError('required')) {
   //     return 'You must enter a value';
@@ -43,11 +49,14 @@ export class LoginComponent {
       })
       .subscribe(
         (response) => {
-          console.log(response);
+          const token = response.token;
+          this.authService.setToken(token);
+          this.authService.setName(response.name)
+          this.error = false;
+          this.router.navigate(['/']);
         },
         (error) => {
-          console.log('this.', error.error.message);
-
+          this.error = true;
         }
       );
   }

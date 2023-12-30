@@ -34,7 +34,6 @@ export class OtpDialogComponent {
         this.message=response.message
       },
       error => {
-        console.log("this.",error);
         this.status= error.error.status
         this.message=error.error.message
       }
