@@ -1,0 +1,50 @@
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  /* align-items Center content horizontally 
+    justify-content Center content vertically
+    text-align Center text content */
+
+    .main-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      
+      .example-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #fae607fe;
+        color: rgb(11, 10, 10);
+        width: 150px;
+      }
+      
+      .icon_class {
+        font-size: 28px;
+      }
+      
+      .example-container mat-form-field + mat-form-field {
+        margin-left: 8px;
+      }
+      
+      .example-card {
+        width: 380px;
+        max-height: auto;
+        /* Center horizontally */
+      }
+      
+      .center-button {
+        text-align: center;
+      }
+      
+      .right-align {
+        text-align: right;
+        padding-top: 10px; /* Add some top padding for spacing */
+        cursor: pointer;
+        color: #d2a906fe; /* Change the color to indicate it's a clickable link */
+      }

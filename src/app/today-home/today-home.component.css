@@ -1,5 +1,5 @@
 .example-card {
-    width: 500px;
+    width: 380px;
     max-height:auto;
     /* Center horizontally*/
   }
@@ -20,7 +20,7 @@
   
   .example-form {
     min-width: 150px;
-    max-width: 500px;
+    max-width: 350px;
     width: 100%;
   }
   
@@ -57,4 +57,14 @@
   }
   .icon_class{
     font-size: 28px; 
+  }
+
+  .logout-button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px; /* Adjust padding as needed */
+  }
+  
+  .logout-button {
+    margin-right: 8px !important;/* Adjust margin-right as needed */
   }

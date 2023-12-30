@@ -9,7 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { TodayHomeComponent } from './today-home/today-home.component';
@@ -21,6 +21,10 @@ import { ActionDialogComponent } from './action-dialog/action-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddOrEditDialogComponent } from './popups/add-or-edit-dialog/add-or-edit-dialog.component';
 import { ViewTodoComponent } from './popups/view-todo/view-todo.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { OtpDialogComponent } from './popups/otp-dialog/otp-dialog.component';
+import { MenuDialogComponent } from './popups/menu-dialog/menu-dialog.component';
 
 
 @NgModule({
@@ -31,6 +35,10 @@ import { ViewTodoComponent } from './popups/view-todo/view-todo.component';
     ActionDialogComponent,
     AddOrEditDialogComponent,
     ViewTodoComponent,
+    LoginComponent,
+    RegisterComponent,
+    OtpDialogComponent,
+    MenuDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,8 @@ import { ViewTodoComponent } from './popups/view-todo/view-todo.component';
      MatDividerModule,
      MatListModule,
      MatDialogModule,
-     HttpClientModule
+     HttpClientModule,
+     ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

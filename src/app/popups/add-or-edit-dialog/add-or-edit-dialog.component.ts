@@ -13,7 +13,8 @@ export class  AddOrEditDialogComponent implements OnInit{
   details!: String;
   todo:String='';
   edit:boolean=false;
-  done!:boolean;;
+  done!:boolean;
+  constant:boolean=false;
 
   constructor(
     public dialogRef: MatDialogRef<AddOrEditDialogComponent>,
@@ -50,7 +51,7 @@ export class  AddOrEditDialogComponent implements OnInit{
     this.dialogRef.close();
   }
   onAddClick(): void {
-    this.todoService.addTodo({data:{name:this.todo,details:this.details,done:false}}).subscribe(
+    this.todoService.addTodo({data:{name:this.todo,details:this.details,done:false,constant:this.constant}}).subscribe(
       response => {
         console.log('todo added Successfully', response);
 

@@ -1,0 +1,115 @@
+<!-- <div class="main-div">
+  <mat-card>
+    <mat-card-header>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="example-container">
+        <mat-form-field style="width: 100%;">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            [formControl]="email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field style="width: 100%;">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+      </div>
+    </mat-card-content>
+
+    <button mat-fab extended class="example-card">
+         <mat-icon>favorite</mat-icon> 
+       <b>Login</b> 
+      </button>
+  </mat-card>
+</div> -->
+
+<div class="main-div">
+    <mat-card>
+      <mat-card-header></mat-card-header>
+  
+      <mat-card-content>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field style="width: 100%">
+                <mat-label>Enter your email</mat-label>
+                <input
+                  matInput
+                  placeholder="pat@example.com"
+                  formControlName="email"
+                  required
+                />
+                <!-- <mat-error *ngIf="email.invalid">{{
+                  getErrorMessage()
+                }}</mat-error> -->
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field style="width: 100%">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"/>
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="hide = !hide"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide"
+                >
+                  <!-- <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon> -->
+                </button>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <small *ngIf="error===true">  <p style="color: red">Invalid Credentials. Please try again</p> </small>
+               
+            </td>
+          </tr>
+  
+          <tr>
+            <td class="center-button">
+              <button mat-fab extended class="example-card" type="submit" [disabled]="!profileForm.valid">
+                <b>Login</b>
+
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td class="right-align">
+                <small>New User ?  <i (click)="navigateToRegister()"><b>Register</b></i></small>
+
+            </td>
+          </tr>
+        </table>
+    </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+
+<!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label for="first-name">First Name: </label>
+  <input id="first-name" type="text" formControlName="firstName" />
+
+  <label for="last-name">Last Name: </label>
+  <input id="last-name" type="text" formControlName="lastName" />
+
+  <p>Complete the form to enable button.</p>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <p>Form Status: {{ profileForm.status }}</p>
+</form> -->
